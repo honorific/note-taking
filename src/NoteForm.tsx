@@ -11,6 +11,12 @@ const NoteForm = () => {
               <Form.Control required />
             </Form.Group>
           </Col>
+          <Col>
+            <Form.Group controlId='tags'>
+              <Form.Label>Tags</Form.Label>
+              <Form.Control required />
+            </Form.Group>
+          </Col>
         </Row>
       </Stack>
     </Form>
