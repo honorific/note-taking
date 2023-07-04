@@ -44,6 +44,7 @@ const NoteForm = ({onSubmit}: NoteFormProps) => {
                   }
                 })}
                 onChange={(tags) => {
+                  console.log('tags are: ', tags)
                   setSelectedTags(
                     tags.map((tag) => {
                       return {
