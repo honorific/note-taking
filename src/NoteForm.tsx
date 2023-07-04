@@ -43,6 +43,16 @@ const NoteForm = ({onSubmit}: NoteFormProps) => {
                     value: tags.id,
                   }
                 })}
+                onChange={(tags) => {
+                  setSelectedTags(
+                    tags.map((tag) => {
+                      return {
+                        label: tag.label,
+                        id: tag.value,
+                      }
+                    }),
+                  )
+                }}
               />
             </Form.Group>
           </Col>
