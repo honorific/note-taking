@@ -10,10 +10,10 @@ export type Note = {
 export type NoteData = {
   title: string
   markdown: string
-  tags: tag[]
+  tags: Tag[]
 }
 
-export type tag = {
+export type Tag = {
   id: string
   label: string
 }
