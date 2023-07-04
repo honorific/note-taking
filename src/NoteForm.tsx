@@ -14,7 +14,11 @@ const NoteForm = ({onSubmit}: NoteFormProps) => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
-
+    onSubmit({
+      title: titleRef.current!.value,
+      markdown: markdownRef.current!.value,
+      tags: [],
+    })
   }
 
   return (
