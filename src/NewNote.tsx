@@ -1,6 +1,7 @@
 import NoteForm from './NoteForm'
 
 const NewNote = () => {
+  // test of data
   const obj = {
     title: 'ali',
     markdown: 'gholi',
