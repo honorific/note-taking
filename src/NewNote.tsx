@@ -1,16 +1,15 @@
+import {NoteData} from './App'
 import NoteForm from './NoteForm'
 
-const NewNote = () => {
-  // test of data
-  const obj = {
-    title: 'ali',
-    markdown: 'gholi',
-    tags: {id: 'first', label: '1st'},
-  }
+type NewNoteProps = {
+  onSubmit: (data: NoteData) => void
+}
+
+const NewNote = ({onSubmit}: NewNoteProps) => {
   return (
     <>
       <h1 className='mb-4'>New note</h1>
-      <NoteForm onSubmit={(obj) => console.log(obj)} />
+      <NoteForm onSubmit={onSubmit} />
     </>
   )
 }
