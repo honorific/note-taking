@@ -39,6 +39,12 @@ function App() {
       return {...note, tags: tags.filter((tag) => note.tagIds.includes(tag.id))}
     })
   }, [])
+
+  // const onCreateNote = ({tags, ...data}: NoteData) => {
+  //   setNotes((prevNotes) => {
+  //     return [...prevNotes, {...data, id: }]
+  //   })
+  // }
   return (
     <Container className='my-4'>
       <Routes>
