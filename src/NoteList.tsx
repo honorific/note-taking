@@ -48,7 +48,6 @@ const NoteList = ({availableTags}: NoteListProps) => {
                   }
                 })}
                 onChange={(tags) => {
-                  console.log('tags are: ', tags)
                   setSelectedTags(
                     tags.map((tag) => {
                       return {
