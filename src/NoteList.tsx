@@ -3,10 +3,17 @@ import {Button, Col, Form, FormControl, Row, Stack} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 import ReactSelect from 'react-select'
 import {Note, Tag} from './App'
+import NoteCard from './NoteCard'
+
+export type simplifiedNote = {
+  tags: Tag[]
+  title: string
+  id: string
+}
 
 type NoteListProps = {
   availableTags: Tag[]
-  notes: Note[]
+  notes: simplifiedNote[]
 }
 
 const NoteList = ({availableTags, notes}: NoteListProps) => {
@@ -84,7 +91,7 @@ const NoteList = ({availableTags, notes}: NoteListProps) => {
       <Row xs={1} sm={2} lg={3} xl={4} className='g-3'>
         {filteredNotes.map((note) => (
           <Col key={note.id}>
-            <NoteCard />
+            <NoteCard id={note.id} title={note.title} tags={note.tags} />
           </Col>
         ))}
       </Row>
