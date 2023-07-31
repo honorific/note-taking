@@ -13,7 +13,7 @@ const NoteList = ({availableTags}: NoteListProps) => {
   const [title, setTitle] = useState('')
   return (
     <>
-      <Row>
+      <Row className='align-items-center mb-4'>
         <Col>
           <h1>Notes</h1>
         </Col>
