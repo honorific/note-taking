@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 import ReactSelect from 'react-select'
 import {Note, Tag} from './App'
 import NoteCard from './NoteCard'
+import EditTagsModal from './EditTagsModal'
 
 export type simplifiedNote = {
   tags: Tag[]
@@ -11,16 +12,16 @@ export type simplifiedNote = {
   id: string
 }
 
-type NoteListProps = {
+export type NoteListProps = {
   availableTags: Tag[]
-  notes: simplifiedNote[]
+  notes?: simplifiedNote[]
 }
 
 const NoteList = ({availableTags, notes}: NoteListProps) => {
   const [selectedTags, setSelectedTags] = useState<Tag[]>([])
   const [title, setTitle] = useState('')
   const filteredNotes = useMemo(() => {
-    return notes.filter((note) => {
+    return notes?.filter((note) => {
       return (
         (title === '' ||
           note.title.toLowerCase().includes(title.toLowerCase())) &&
@@ -89,12 +90,13 @@ const NoteList = ({availableTags, notes}: NoteListProps) => {
         </Row>
       </Form>
       <Row xs={1} sm={2} lg={3} xl={4} className='g-3'>
-        {filteredNotes.map((note) => (
+        {filteredNotes?.map((note) => (
           <Col key={note.id}>
             <NoteCard id={note.id} title={note.title} tags={note.tags} />
           </Col>
         ))}
       </Row>
+      <EditTagsModal availableTags={availableTags} />
     </>
   )
 }
