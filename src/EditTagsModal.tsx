@@ -13,7 +13,9 @@ const EditTagsModal = ({availableTags}: NoteListProps) => {
           <Stack gap={2}>
             {availableTags.map((tag) => (
               <Row key={tag.id}>
-                <Col></Col>
+                <Col>
+                  <Form.Control type='text' value={tag.label} />
+                </Col>
                 <Col xs='auto'>
                   <Button variant='outline-danger'>&times;</Button>
                 </Col>
