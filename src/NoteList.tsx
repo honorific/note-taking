@@ -19,6 +19,7 @@ export type NoteListProps = {
 
 const NoteList = ({availableTags, notes}: NoteListProps) => {
   const [selectedTags, setSelectedTags] = useState<Tag[]>([])
+  const [editTagsModalIsOpen, setEditTagsModelIsOpen] = useState(false)
   const [title, setTitle] = useState('')
   const filteredNotes = useMemo(() => {
     return notes?.filter((note) => {
@@ -96,7 +97,11 @@ const NoteList = ({availableTags, notes}: NoteListProps) => {
           </Col>
         ))}
       </Row>
-      <EditTagsModal availableTags={availableTags} />
+      <EditTagsModal
+        availableTags={availableTags}
+        show={false}
+        handleClose={() => setEditTagsModelIsOpen(false)}
+      />
     </>
   )
 }

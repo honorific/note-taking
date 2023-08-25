@@ -2,9 +2,18 @@ import React from 'react'
 import {Button, Col, Form, Modal, Row, Stack} from 'react-bootstrap'
 import {NoteListProps} from './NoteList'
 
-const EditTagsModal = ({availableTags}: NoteListProps) => {
+type EditTagsModalProps = {
+  show: boolean
+  handleClose: () => void
+} & NoteListProps
+
+const EditTagsModal = ({
+  availableTags,
+  handleClose,
+  show,
+}: EditTagsModalProps) => {
   return (
-    <Modal>
+    <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
         <Modal.Title>Edit tags</Modal.Title>
       </Modal.Header>
