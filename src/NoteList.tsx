@@ -45,7 +45,12 @@ const NoteList = ({availableTags, notes}: NoteListProps) => {
             <Link to='/new'>
               <Button variant='primary'>create</Button>
             </Link>
-            <Button variant='outline-secondary'>Edit tags</Button>
+            <Button
+              variant='outline-secondary'
+              onClick={() => setEditTagsModelIsOpen(true)}
+            >
+              Edit tags
+            </Button>
           </Stack>
         </Col>
       </Row>
@@ -99,7 +104,7 @@ const NoteList = ({availableTags, notes}: NoteListProps) => {
       </Row>
       <EditTagsModal
         availableTags={availableTags}
-        show={false}
+        show={editTagsModalIsOpen}
         handleClose={() => setEditTagsModelIsOpen(false)}
       />
     </>
