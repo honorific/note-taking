@@ -2,9 +2,18 @@ import React from 'react'
 import {Button, Col, Form, Modal, Row, Stack} from 'react-bootstrap'
 import {NoteListProps} from './NoteList'
 
-const EditTagsModal = ({availableTags}: NoteListProps) => {
+type EditTagsModalProps = {
+  show: boolean
+  handleClose: () => void
+} & NoteListProps
+
+const EditTagsModal = ({
+  availableTags,
+  handleClose,
+  show,
+}: EditTagsModalProps) => {
   return (
-    <Modal>
+    <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
         <Modal.Title>Edit tags</Modal.Title>
       </Modal.Header>
@@ -13,7 +22,9 @@ const EditTagsModal = ({availableTags}: NoteListProps) => {
           <Stack gap={2}>
             {availableTags.map((tag) => (
               <Row key={tag.id}>
-                <Col></Col>
+                <Col>
+                  <Form.Control type='text' value={tag.label} />
+                </Col>
                 <Col xs='auto'>
                   <Button variant='outline-danger'>&times;</Button>
                 </Col>
