@@ -11,6 +11,8 @@ const EditTagsModal = ({
   availableTags,
   handleClose,
   show,
+  deleteTag,
+  updateTag,
 }: EditTagsModalProps) => {
   return (
     <Modal show={show} onHide={handleClose}>

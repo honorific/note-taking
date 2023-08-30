@@ -15,9 +15,11 @@ export type simplifiedNote = {
 export type NoteListProps = {
   availableTags: Tag[]
   notes?: simplifiedNote[]
+  deleteTag: (id: string) => void
+  updateTag: (id: string, label: string) => void
 }
 
-const NoteList = ({availableTags, notes}: NoteListProps) => {
+const NoteList = ({availableTags, notes, deleteTag, updateTag}: NoteListProps) => {
   const [selectedTags, setSelectedTags] = useState<Tag[]>([])
   const [editTagsModalIsOpen, setEditTagsModelIsOpen] = useState(false)
   const [title, setTitle] = useState('')
@@ -106,6 +108,8 @@ const NoteList = ({availableTags, notes}: NoteListProps) => {
         availableTags={availableTags}
         show={editTagsModalIsOpen}
         handleClose={() => setEditTagsModelIsOpen(false)}
+        updateTag={updateTag}
+        deleteTag={deleteTag}
       />
     </>
   )
