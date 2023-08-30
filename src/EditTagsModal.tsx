@@ -25,10 +25,19 @@ const EditTagsModal = ({
             {availableTags.map((tag) => (
               <Row key={tag.id}>
                 <Col>
-                  <Form.Control type='text' value={tag.label} />
+                  <Form.Control
+                    type='text'
+                    value={tag.label}
+                    onChange={(e) => updateTag(tag.id, e.target.value)}
+                  />
                 </Col>
                 <Col xs='auto'>
-                  <Button variant='outline-danger'>&times;</Button>
+                  <Button
+                    variant='outline-danger'
+                    onClick={(e) => deleteTag(tag.id)}
+                  >
+                    &times;
+                  </Button>
                 </Col>
               </Row>
             ))}
