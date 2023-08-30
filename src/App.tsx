@@ -56,6 +56,24 @@ function App() {
     })
   }
 
+  const updateTag = (id: string, label: string) => {
+    setTags((prevTags) => {
+      return prevTags.map((tag) => {
+        if (tag.id === id) {
+          return {...tag, label}
+        } else {
+          return tag
+        }
+      })
+    })
+  }
+
+  const deleteTag = (id: string) => {
+    setTags((prevTags) => {
+      return prevTags.filter((tag) => tag.id !== id)
+    })
+  }
+
   const onDeleteNote = (id: string) => {
     setNotes((prevNotes) => {
       return prevNotes.filter((note) => note.id !== id)
